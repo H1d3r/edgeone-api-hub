@@ -286,16 +286,16 @@ export async function onRequest(context) {
     const origin = getCurrentOrigin(request);
     console.log(`[EdgeOne-Index] ✅ Serving homepage for origin: ${origin}`);
 
-    // return new Response(generateHTMLTemplate(origin), {
-    //   headers: {
-    //     'Content-Type': 'text/html; charset=utf-8',
-    //     'Cache-Control': 'public, max-age=300',
-    //     'X-Page-Type': 'homepage',
-    //     'X-Handler': 'root-index',
-    //     'X-EdgeOne-Compatible': 'v2.3',
-    //     'Access-Control-Allow-Origin': '*'
-    //   }
-    // });
+    return new Response(generateHTMLTemplate(origin), {
+      headers: {
+        'Content-Type': 'text/html; charset=utf-8',
+        'Cache-Control': 'public, max-age=300',
+        'X-Page-Type': 'homepage',
+        'X-Handler': 'root-index',
+        'X-EdgeOne-Compatible': 'v2.3',
+        'Access-Control-Allow-Origin': '*'
+      }
+    });
   }
 
   // 其他方法返回405
@@ -308,3 +308,4 @@ export async function onRequest(context) {
   });
 
 }
+
